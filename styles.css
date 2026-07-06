@@ -47,7 +47,7 @@ h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;line-height:1.08}
 
 /* ============ NAV ============ */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:background .4s,box-shadow .4s,padding .4s}
-nav.scrolled{background:rgba(7,47,24,.94);backdrop-filter:blur(14px);padding:10px 0;box-shadow:0 1px 0 var(--hair-light)}
+nav.scrolled{background:rgba(7,47,24,.97);padding:10px 0;box-shadow:0 1px 0 var(--hair-light)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand-name{font-weight:700;font-size:1.02rem;letter-spacing:.1em;color:#fff}
@@ -69,11 +69,13 @@ nav.open .burger span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
 @media(max-width:840px){
   .burger{display:block}
   .nav-links{
-    position:fixed;inset:0;background:linear-gradient(160deg,#0B4423,#072F18);
+    position:fixed;top:0;left:0;right:0;height:100dvh;
+    background:linear-gradient(160deg,#0B4423,#072F18);
     flex-direction:column;justify-content:center;gap:36px;
-    transform:translateY(-102%);transition:transform .5s var(--ease);z-index:120;
+    transform:translateY(-102%);visibility:hidden;
+    transition:transform .5s var(--ease),visibility 0s .5s;z-index:120;
   }
-  nav.open .nav-links{transform:none}
+  nav.open .nav-links{transform:none;visibility:visible;transition:transform .5s var(--ease),visibility 0s}
   .nav-links a{font-size:1.3rem}
   .nav-cta{font-size:.9rem!important;padding:14px 30px}
   nav.open{background:transparent!important;box-shadow:none!important}
